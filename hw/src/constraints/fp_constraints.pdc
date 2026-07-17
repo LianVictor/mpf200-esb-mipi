@@ -1,0 +1,32 @@
+# Microchip Physical design constraints file
+
+# Version: 2023.2 2023.2.0.8
+
+# Design Name: VIDEO_KIT_TOP 
+
+# Input Netlist Format: EDIF 
+
+# Family: PolarFire , Die: MPF200T , Package: FCG784 , Speed grade: -1 
+
+# Date generated: Mon Jun 17 16:14:05 2024 
+
+
+#
+# Local clock constraints
+#
+
+
+#
+# Region constraints
+#
+
+
+#
+# Core cell constraints
+#
+
+set_location -inst_name MAC_Hololink_0/MAC_BaseR_1/PF_TX_PLL_C0_0/PF_TX_PLL_C0_0/txpll_isnt_0 -fixed true -x 1596 -y 320
+set_location -inst_name MAC_Hololink_0/MAC_BaseR_0/PF_XCVR_ERM_C0_0/I_XCVR/LANE0 -fixed true -x 1596 -y 344
+set_location -inst_name MAC_Hololink_0/MAC_BaseR_0/PF_TX_PLL_C0_0/PF_TX_PLL_C0_0/txpll_isnt_0 -fixed true -x 1602 -y 374
+set_location -inst_name MAC_Hololink_0/MAC_BaseR_1/PF_XCVR_ERM_C0_0/I_XCVR/LANE0 -fixed true -x 1596 -y 317
+set_location -inst_name MAC_Hololink_0/PF_XCVR_REF_CLK_C0_0/PF_XCVR_REF_CLK_C0_0/I_IO -fixed true -x 1602 -y 371

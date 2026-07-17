@@ -1,0 +1,19 @@
+#Design related cores
+set CORE10GMACver          {3.0.101}
+set CoreAPB3ver            {4.2.100}  
+set CORERESET_PFver        {2.3.100}
+set COREABCver             {4.1.111}
+set mipicsi2rxdecoderPFver {5.1.0}
+set MIPI_TRAINING_LITEver  {1.0.0}
+#set PF_CCCver              {2.2.220}
+set PF_CCCver              {2.2.222}
+set PF_NGMUXver            {1.0.101}
+#set PF_IOD_GENERIC_RXver   {2.1.113}
+set PF_IOD_GENERIC_RXver   {2.1.116}
+#set PF_SYSTEM_SERVICESver  {3.0.103}
+set PF_SYSTEM_SERVICESver  {3.0.104}
+set PF_TX_PLLver           {2.0.304}
+set PF_XCVR_REF_CLKver     {1.0.103} 
+set PF_XCVR_ERMver         {3.1.206}  
+set PF_INIT_MONITORver     {2.0.308}
+

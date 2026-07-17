@@ -1,0 +1,56 @@
+# Exporting Component Description of CORE10GMAC_C0 to TCL
+# Family: PolarFire
+# Part Number: MPF200T-1FCG784E
+# Create and Configure the core component CORE10GMAC_C0
+create_and_configure_core -core_vlnv Actel:DirectCore:CORE10GMAC:$CORE10GMACver -component_name {CORE10GMAC_C0} -params {\
+"C36_DISABLE:1"  \
+"CFG_CPU_ASYNC_TO_CNT:80"  \
+"CFG_CPU_ASYNC_TO_EN:false"  \
+"CFG_MAC_RX_CHECK_LT:false"  \
+"CFG_MAC_RX_FIFO_DEPTH:256"  \
+"CFG_MAC_RX_LPBK_LOCAL_EN:false"  \
+"CFG_MAC_RX_PREAMBLE:false"  \
+"CFG_MAC_TX_CHECK_LT:false"  \
+"CFG_MAC_TX_FIFO_DEPTH:256"  \
+"CFG_MAC_TX_IFG_CNT:12"  \
+"CFG_MAC_TX_LPBK_LOCAL_EN:false"  \
+"CFG_MAC_TX_PREAMBLE:false"  \
+"CFG_PAUSE_RX_CHECK_PMC:true"  \
+"CFG_PAUSE_RX_CHECK_PUC:false"  \
+"CFG_PAUSE_RX_EN:0"  \
+"CFG_PAUSE_TX_EN:0"  \
+"CFG_PAUSE_TX_TIMER:false"  \
+"CFG_PCS73_RX_GRBX_EN:true"  \
+"CFG_SYS_MAC_RX_GFC:false"  \
+"CWC:2"  \
+"PCS73_LPBK_SIM:0"  \
+"PTP_DISABLE:1"  \
+"RX_MAC_STATS_PKT_BROADCAST_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_CONTROL_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_ERR_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_ERR_FCS_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_ERR_FRM_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_ERR_LEN_CHECK_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_ERR_LEN_LONG_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_ERR_LEN_SHORT_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_MULTICASE_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_OK_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_PAD_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_PAUSE_CNT_EN:false"  \
+"RX_MAC_STATS_PKT_VLAN_CNT_EN:false"  \
+"SWC:2"  \
+"TX_MAC_STATS_PKT_BROADCAST_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_CONTROL_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_ERR_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_ERR_FCS_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_ERR_FRM_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_ERR_LEN_CHECK_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_ERR_LEN_LONG_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_ERR_LEN_SHORT_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_MULTICASE_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_OK_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_PAD_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_PAUSE_CNT_EN:false"  \
+"TX_MAC_STATS_PKT_VLAN_CNT_EN:false"  \
+"TYPE_10G:0"   }
+# Exporting Component Description of CORE10GMAC_C0 to TCL done
