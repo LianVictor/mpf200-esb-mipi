@@ -364,7 +364,7 @@ steps:
 ### 9.3. Running Multiple Cameras with One Ethernet
 
 The PFESB kit comes with one IMX477 camera module. Update jumpers to Rev2 board
-configuration. To stream two IMX477 cameras using a single ethernet connection to
+configuration. To stream two IMX477 cameras(default) using a single ethernet connection to
 the AGX port, connect one end of the ethernet cable to the **J5** SFP port of the
 PFESB, and the other end to the AGX ethernet port. Then, execute the following
 commands:
