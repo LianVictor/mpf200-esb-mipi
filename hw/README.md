@@ -21,7 +21,7 @@ The following figure highlights various components of the PFESB.
 
 **Figure 1. Callout Image**
 
-![Figure 1. Callout Image — MPF200-ETH-SENSOR-BRIDGE-R2 board with labeled components](./imgs/fig-1-callout.jpg)
+![Figure 1. Callout Image — MPF200-ETH-SENSOR-BRIDGE-R2 board with labeled components](../imgs/fig-1-callout.jpg)
 
 ## Table of Contents
 
@@ -93,7 +93,7 @@ Sensor Bridge board.
 
 **Figure 3-1. Functional Block Diagram**
 
-![Figure 3-1. Functional block diagram of the PolarFire Ethernet Sensor Bridge](./imgs/fig-4-1-functional-block-diagram.jpg)
+![Figure 3-1. Functional block diagram of the PolarFire Ethernet Sensor Bridge](../imgs/fig-3-1-functional-block-diagram.jpg)
 
 ## 4. Setting up the Jetson AGX Orin Developer Kit
 
@@ -113,7 +113,7 @@ To set up the Holoscan ecosystem, perform the following steps:
 
    **Figure 4-1. Downloading and Installing the SDK**
 
-   ![Figure 4-1. Downloading and Installing the SDK](./imgs/fig-5-1-downloading-sdk.png)
+   ![Figure 4-1. Downloading and Installing the SDK](../imgs/fig-5-1-downloading-sdk.png)
 
 3. After launching the SDK Manager:
    - Follow the steps in the "Install Jetson Software with SDK Manager" section of
@@ -122,7 +122,7 @@ To set up the Holoscan ecosystem, perform the following steps:
 
    **Figure 4-2. Flashing the Jetson AGX Orin Developer Kit**
 
-   ![Figure 4-2. Flashing the Jetson AGX Orin Developer Kit](./imgs/fig-5-2-flashing-jetson.jpg)
+   ![Figure 4-2. Flashing the Jetson AGX Orin Developer Kit](../imgs/fig-4-2-flashing-jetson.jpg)
 
 4. After flashing is done, connect a monitor, keyboard and mouse to the Jetson AGX
    Orin Developer Kit.
@@ -139,7 +139,7 @@ To set up the NVIDIA Holoscan Sensor Bridge, perform the following steps:
 
    **Figure 4-3. Building the Demo Container**
 
-   ![Figure 4-3. Building the Demo Container](./imgs/fig-5-3-building-demo-container.png)
+   ![Figure 4-3. Building the Demo Container](../imgs/fig-4-3-building-demo-container.png)
 
 2. After setup, run the software loopback tests. When the tests pass successfully,
    the setup is complete. To run the example applications, follow the steps in the
@@ -148,7 +148,7 @@ To set up the NVIDIA Holoscan Sensor Bridge, perform the following steps:
 
    **Figure 4-4. Running Software Loopback Tests**
 
-   ![Figure 4-4. Running Software Loopback Tests](./imgs/fig-5-4-loopback-tests.jpg)
+   ![Figure 4-4. Running Software Loopback Tests](../imgs/fig-4-4-loopback-tests.jpg)
 
 ### 4.2. IGX Thor/Orin Setup
 
@@ -192,7 +192,7 @@ are connected as specified:
 
 **Figure 4-5. Jetson AGX Orin Developer Kit Ports**
 
-![Figure 4-5. Jetson AGX Orin Developer Kit Ports](./imgs/fig-5-5-jetson-ports.jpg)
+![Figure 4-5. Jetson AGX Orin Developer Kit Ports](../imgs/fig-4-5-jetson-ports.jpg)
 
 - When connecting the Developer Kit during "Step 1" of the [**NVIDIA SDK Manager
   User Manual**](https://docs.nvidia.com/sdk-manager/install-with-sdkm-jetson/index.html), ensure that "Jetson AGX Orin [64GB Developer Kit Version]" is
@@ -239,7 +239,7 @@ To set up camera 0, perform the following steps:
 
    **Figure 6-1. Setup of Camera 0**
 
-   ![Figure 6-1. Setup of Camera 0](./imgs/fig-7-1-camera0-setup.jpg)
+   ![Figure 6-1. Setup of Camera 0](../imgs/fig-6-1-camera0-setup.jpg)
 
 3. Insert SFP+ to RJ45 converter into the SFP cage on **J6**.
 4. Connect the ethernet cable from the SFP+ RJ45 port to the ethernet port on the
@@ -263,7 +263,7 @@ The following figure shows how to find the PFESB program version.
 
 **Figure 7-1. Check PFESB Program Version**
 
-![Figure 7-1. Check PFESB Program Version](./imgs/fig-8-1-check-pfesb-version.png)
+![Figure 7-1. Check PFESB Program Version](../imgs/fig-7-1-check-pfesb-version.png)
 
 ## 8. Update HSB Firmware
 
@@ -360,12 +360,21 @@ The PFESB kit comes with one IMX477 camera module. Update jumpers to Rev2 board
 configuration. To stream two IMX477 cameras using a single ethernet connection to
 the AGX port, connect one end of the ethernet cable to the **J5** SFP port of the
 PFESB, and the other end to the AGX ethernet port. Then, execute the following
-commands:
+commands(If using more cameras the number can be modified up to 4):
 
 ```bash
 $ xhost +
 $ sh docker/demo.sh
 $ python3 examples/linux_single_network_multi_imx477_player.py
+```
+
+The PFESB kit supports up to 4 cameras with the Jetson Adapter Card. To stream up 
+to 4 cameras run the following:
+
+```bash
+$ xhost +
+$ sh docker/demo.sh
+$ python3 examples/linux_single_network_multi_imx477_player.py  --num-cameras 4
 ```
 
 ### 9.4. Running Two Cameras Using Two Ethernet Ports

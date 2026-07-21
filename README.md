@@ -375,6 +375,15 @@ $ sh docker/demo.sh
 $ python3 examples/linux_single_network_multi_imx477_player.py
 ```
 
+The PFESB kit supports up to 4 cameras with the Jetson Adapter Card. To stream up 
+to 4 cameras run the following:
+
+```bash
+$ xhost +
+$ sh docker/demo.sh
+$ python3 examples/linux_single_network_multi_imx477_player.py  --num-cameras 4
+```
+
 ### 9.4. Running Two Cameras Using Two Ethernet Ports
 
 To stream two IMX477 cameras through two Ethernet ports connected to RDMA-capable
