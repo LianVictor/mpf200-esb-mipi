@@ -54,9 +54,9 @@ The following table lists the hardware and software required for running the dem
 
 | Requirement | Description |
 | --- | --- |
-| Hardware and Accessories: **MPF200-ETH-SENSOR-BRIDGE** | Kit Contents: <br>• MPF200-ETH-SENSOR-BRIDGE — 1 <br>• IMX477 camera module — 1 (12.3 MP 477M HQ Camera Module for Raspberry Pi with 135° (D) M12 Wide Angle Lens, SKU: B0466R; to buy Arducam, see [`www.arducam.com/shop-arducam/`](https://www.arducam.com/shop-arducam/)) <br>• Jetson Adapter Card Rev 1.1 <br>• SFP+ adapter — 1 (Part Number: SFP-10G-T-S from Wiitek) <br>• 12V AC adapter — 1 <br>• MIPI 22 to 22 pin cable — 1 <br>• USB Type-C cable — 1 <br>• Cat7 Ethernet cable — 1 |
+| Hardware and Accessories: **MPF200-ETH-SENSOR-BRIDGE-R2** | Kit Contents: <br>• MPF200-ETH-SENSOR-BRIDGE-R2 — 1 <br>• IMX477 camera module — 1 (12.3 MP 477M HQ Camera Module for Raspberry Pi with 135° (D) M12 Wide Angle Lens, SKU: B0466R; to buy Arducam, see [`IMX477 Camera module SKU:B0466R`](https://www.arducam.com/12-3mp-477m-hq-camera-module-for-raspberry-pi-with-135d-m12-wide-angle-lens.html)) <br>• Jetson Adapter Card Rev 1.1 <br>• SFP+ adapter — 1 (Part Number: SFP-10G-T-S from Wiitek) <br>• MIPI 22 to 22 pin cable — 1 <br>• USB Type-C cable — 1 <br>• Cat7 Ethernet cable — 1 |
 | NVIDIA AGX Developer Kit | NVIDIA Jetson AGX Orin Developer Kit (64 GB). Kit Contents: <br>• Jetson AGX Orin module with heat sink and reference carrier board <br>• USB-C power adapter and cord <br><br>If using IGX devices, see [`docs.nvidia.com/igx/user-guide/latest/OV/introduction.html`](https://docs.nvidia.com/igx/user-guide/latest/OV/introduction.html) for setup and configuration. |
-| NVIDIA Holoscan Sensor Bridge Software Package | Download the Release 2.6.0  from [here](https://github.com/nvidia-holoscan/holoscan-sensor-bridge)|
+| NVIDIA Holoscan Sensor Bridge Software Package | Download the lastest release from [here](https://github.com/nvidia-holoscan/holoscan-sensor-bridge) <br>**NOTE**: NVIDIA Repo does not currently support MPF200-ETH-SENSOR-BRIDGE-R2 for Holoscan Sensor Bridge SDK 2.7.0, please use [`this SDK branch`](https://github.com/LianVictor/holoscan-sensor-bridge/tree/MCHP-Rev2-update)  in the interim. |
 | USB mouse and keyboard | 1 |
 | Display port monitor | 1 |
 | Ubuntu PC | OS version 22.04 or higher |
@@ -142,7 +142,7 @@ To set up the NVIDIA Holoscan Sensor Bridge, perform the following steps:
 
    **Figure 4-3. Building the Demo Container**
 
-   <img src="./imgs/fig-4-3-building-demo-container.png" alt="Figure 4-3. Building the Demo Container" width="60%">
+   <img src="./imgs/fig-4-3-building-demo-container.png" alt="Figure 4-3. Building the Demo Container" width="40%">
 
 
 2. After setup, run the software loopback tests. When the tests pass successfully,
@@ -150,7 +150,12 @@ To set up the NVIDIA Holoscan Sensor Bridge, perform the following steps:
    "Running Holoscan Sensor Bridge Examples" section of the [**NVIDIA Holoscan
    Sensor Bridge User Manual**](https://docs.nvidia.com/holoscan/sensor-bridge/latest/examples.html).
 
-   **Figure 4-4. Running Software Loopback Tests**
+   Run the loopback tests via issuing the following command within docker container shell:
+   ```
+   pytest
+   ```
+
+   **Figure 4-4. Display from Running Software Loopback Tests**
 
    <img src="./imgs/fig-4-4-loopback-tests.jpg" alt="Figure 4-4. Running Software Loopback Tests" width="40%">
 
@@ -212,12 +217,11 @@ are connected as specified:
   - The flashing process can take approximately 30 minutes. You can monitor the
     installation progress during this time.
 
-## 5. Setting up the MPF200-ETH-SENSOR-BRIDGE Kit
+## 5. Setting up the MPF200-ETH-SENSOR-BRIDGE-R2 Kit
 
-The MPF200-ETH-SENSOR-BRIDGE comes as a kit, with the following items in the box:
+The MPF200-ETH-SENSOR-BRIDGE-R2 comes as a kit, with the following items in the box:
 
-- MPF200-ETH-SENSOR-BRIDGE
-- 12V power adapter
+- MPF200-ETH-SENSOR-BRIDGE-R2
 - SFP+ to RJ45 converter
 - Ethernet cable
 - IMX477 camera along with lens and cable
@@ -237,10 +241,10 @@ Ensure that the jumpers are set correctly, as listed in the following table.
 
 To set up camera 0, perform the following steps:
 
-1. Make sure that the MPF200-ETH-SENSOR-BRIDGE board is powered off.
+1. Make sure that the MPF200-ETH-SENSOR-BRIDGE-R2 board is powered off.
 2. Connect the camera to the IMX477 camera module through the **J14** MIPI
    connector found on the Jetson Adapter Card Rev 1.1, then connect the Jetson
-   Adapter Card to the MPF200-ETH-SENSOR-BRIDGE through the **J4** connector, using
+   Adapter Card to the MPF200-ETH-SENSOR-BRIDGE-R2 through the **J4** connector, using
    the 22 pin to 22 pin camera cable, as shown in the following figure.
 
    **Figure 6-1. Setup of Camera 0**
@@ -251,7 +255,6 @@ To set up camera 0, perform the following steps:
 3. Insert SFP+ to RJ45 converter into the SFP cage on **J6**.
 4. Connect the ethernet cable from the SFP+ RJ45 port to the ethernet port on the
    NVIDIA Holoscan Sensor Bridge compatible device.
-5. Connect the 12V power adapter to the **J10** power input port.
 
 > **Note:** Connect USB-C to **J8** and ensure the J36 jumper is closed on the
 > USB_C_5V configuration.
@@ -416,6 +419,16 @@ $ python3 examples/imx477_latency.py
 After the Holoviz window opens, let it run for a few seconds and then close it. The
 complete latency report will be displayed on the terminal.
 
+## 10. Sensor Modification
+
+### 10.1. Default IMX 477 Modification
+
+The driver settings for the default IMX477 camera module SKU: B0466R are found on the main Holoscan repo at this [`location`](https://github.com/nvidia-holoscan/holoscan-sensor-bridge/blob/main/python/hololink/sensors/imx477.py). This file contains basic driver settings and modifications of registers. 
+
+### 10.2. New Sensor Setup (SDK)
+
+Nvidia provides a brief summary found [`here`](https://docs.nvidia.com/holoscan/sensor-bridge/applications/new-sensors) that showcases how to adapt new sensors into the SDK.
+
 ## Appendix A: Design Creation Using TCL Scripts
 
 Download the contents of this repository . TCL scripts are placed under `hw` directory.
@@ -466,7 +479,7 @@ This section describes how to program the PolarFire device with the job programm
 
 | Issue | Solution |
 | --- | --- |
-| Incompatible SDK or Holoscan IP version error when running the example inside the Docker container | Update the SDK or the JOB file to a compatible version. **Note:** Hardware Revision 2 is supported starting from **SDK v2.6.0**, and requires **JOB file version 26.03** or later. |
+| Incompatible SDK or Holoscan IP version error when running the example inside the Docker container | Update the SDK or the JOB file to a compatible version. **Note:** Hardware Revision 2 is supported starting from **SDK v2.7.0**, and requires **JOB file version 26.06** or later. |
 
 ## Microchip FPGA Support
 
